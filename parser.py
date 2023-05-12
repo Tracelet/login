@@ -103,7 +103,7 @@ for i in range(5):
         print(e)
         time.sleep(1)
         if i == 4:
-            exit(1)
+            raise e
 
 
 category_soup = bs(page.text, "html.parser")

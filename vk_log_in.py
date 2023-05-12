@@ -15,10 +15,11 @@ def check_element(by: str, element: str):
         except NoSuchElementException as e:
             print(f"Try to found element \"{element}\" by {by}...       {i + 1}/ 10")
             if i == 9:
-                raise e.msg
+                raise NoSuchElementException(e.msg)
             time.sleep(1)
         else:
             break
+
 
 
 driver = webdriver.Chrome()
@@ -28,7 +29,7 @@ for i in range(5):
         driver.get("https://vk.com/login")
     except WebDriverException as e:
         if i == 4:
-            raise e
+            raise WebDriverException(e.msg)
         time.sleep(1)
     else:
         break
